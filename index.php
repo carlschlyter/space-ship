@@ -15,11 +15,17 @@ try {
      throw new \PDOException($e->getMessage(),(int)$e->getCode());
 }
 
-$stmt = $pdo->query('SELECT * FROM customers');
+// $sql = "INSERT INTO customers(customerName) VALUES('Calle')";
+//     //echo $sql . '<br>'; //(Mickes grej för att kolla varför inte formuläret fungerade)
+//     $stmt =$pdo->prepare($sql); 
+//     $stmt->execute(['customerName' =>'Calle']);
+//     echo 'customer added';
 
-while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-    echo $row['title'];
+$stmt = $pdo->query("SELECT * FROM customers");
+    
+    while ($row = $stmt->fetch()){
+    echo $row['CustomerId'] . " - " .  $row['CustomerName'] . '<br>';
 }
 
-    echo 'Hello Space Ship!';
+//     echo 'Hello Space Ship!';
 ?>
