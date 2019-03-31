@@ -49,7 +49,7 @@ try {
         <th>Aktuella resor</th>
     </tr>
     <tr>
-        <td>
+        <td><br>
         <?php 
         $stmt = $pdo->query("SELECT * FROM products"); 
         while ($row = $stmt->fetch()){
