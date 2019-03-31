@@ -15,10 +15,10 @@ try {
      throw new \PDOException($e->getMessage(),(int)$e->getCode());
 }
 
-    // $sql = "INSERT INTO products(productName) VALUES('Planeten Jupiter - 14 apr 2031')";
+    // $sql = "INSERT INTO products(productName) VALUES('Planeten Pluto - 18 sept 2022')";
     // //echo $sql . '<br>'; //(Mickes grej för att kolla varför inte formuläret fungerade)
     // $stmt =$pdo->prepare($sql); 
-    // $stmt->execute(['productName' =>'Planeten Jupiter - 14 apr 2031']);
+    // $stmt->execute(['productName' =>'Planeten Pluto - 18 sept 2022']);
     // echo 'product added';
 
 //     $stmt = $pdo->query("SELECT * FROM products");    
@@ -45,13 +45,14 @@ try {
 <h2>Välj resa:</h2>
 
 <table>
-    <th>Aktuella resor</th>
+    <tr>
+        <th>Aktuella resor</th>
+    </tr>
     <tr>
         <td>
-        <?php
-            $stmt = $pdo->query("SELECT * FROM products");    
-
-            while ($row = $stmt->fetch()){
+        <?php 
+        $stmt = $pdo->query("SELECT * FROM products"); 
+        while ($row = $stmt->fetch()){
             echo $row['productName'] . '<br>';
         }
         ?>
