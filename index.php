@@ -44,13 +44,19 @@ try {
 <h1>Boka en resa till rymden!</h1>
 <h2>Välj resa:</h2>
 
-<?php
-    $stmt = $pdo->query("SELECT * FROM products");    
+<table>
+    <th>Aktuella resor</th>
+    <tr>
+        <td>
+        <?php
+            $stmt = $pdo->query("SELECT * FROM products");    
 
-    while ($row = $stmt->fetch()){
-    echo $row['productName'] . '<br>';
-}
-?>
-    
+            while ($row = $stmt->fetch()){
+            echo $row['productName'] . '<br>';
+        }
+        ?>
+        </td>
+    </tr>
+</table>    
 </body>
 </html>
