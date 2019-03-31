@@ -58,6 +58,14 @@ try {
         ?>
         </td>
     </tr>
+</table><br><br>
+<table class='working_on'>
+    <tr>
+        <th>Valda resor</th>
+    </tr>
+    <tr>
+        <td><p>[Här kommer valda resor visas med javascript]</p></td>
+    </tr>
 </table>    
 </body>
 </html>
