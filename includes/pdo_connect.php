@@ -15,9 +15,9 @@ try {
      throw new \PDOException($e->getMessage(),(int)$e->getCode());
 }
 
-$sql = "INSERT INTO products(productName) VALUES('Planeten Saturnus - 2 dec 2028')";
-//echo $sql . '<br>'; //(Mickes grej för att kolla varför inte formuläret fungerade)
-$stmt =$pdo->prepare($sql); 
-$stmt->execute(['productName' =>'Planeten Saturnus - 2 dec 2028']);
-echo 'product added';
+// $sql = "INSERT INTO products(productName) VALUES('Planeten Saturnus - 2 dec 2028')";
+// //echo $sql . '<br>'; //(Mickes grej för att kolla varför inte formuläret fungerade)
+// $stmt =$pdo->prepare($sql); 
+// $stmt->execute(['productName' =>'Planeten Saturnus - 2 dec 2028']);
+// echo 'product added';
 ?>

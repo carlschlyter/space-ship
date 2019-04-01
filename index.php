@@ -56,7 +56,7 @@ include 'includes/pdo_connect.php';
         <?php 
         $stmt = $pdo->query("SELECT * FROM products"); 
         while ($row = $stmt->fetch()){
-            echo $row['productName'] . '<br>';
+            echo $row['productName'] . '<input type="checkbox" id="journ_choice">' . '<br>';
         }
         ?>
         </td>
@@ -67,7 +67,7 @@ include 'includes/pdo_connect.php';
         <th>Valda resor</th>
     </tr>
     <tr>
-        <td><p>[Här kommer valda resor visas med javascript]</p></td>
+        <td id="choosen_journ"><p>[Här kommer valda resor visas med javascript]</p></td>
     </tr>
 </table>    
 </body>
