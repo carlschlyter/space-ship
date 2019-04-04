@@ -1,4 +1,5 @@
 <?php
+
 // $host = 'localhost';
 // $db = 'space_ship';
 // $user = 'root';
@@ -55,11 +56,11 @@ include 'includes/pdo_connect.php';
         <td><br>
         <?php 
         $stmt = $pdo->query("SELECT * FROM products"); 
+        $products = [];
         while ($row = $stmt->fetch()){
-            echo $row['productName'] . '<input type="checkbox" id="journ_choice">' . '<br>';
-            //$arr = array($row);
-            //var_dump($row);
-            //$json = json_encode($row);            
+            echo $row['productName'] . '<input type="checkbox" id="journ_choice_' . $row['ProductId'] . '">' . '<br>';
+            // var_dump($row);
+            $products[] = $row;
         }
         ?>
         </td>
@@ -70,7 +71,8 @@ include 'includes/pdo_connect.php';
         <th>Valda resor</th>
     </tr>
     <tr>
-        <td id="choosen_journ"><p>[här ska valda resor listas]</p></td>
+        <td id="choosen_journ">[här ska valda resor listas]</td>
+        <td><textarea id="choosen_journ2"><?php echo json_encode($products); ?></textarea></td>
     </tr>
 </table>    
 </body>
