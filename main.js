@@ -31,14 +31,17 @@ document.addEventListener('DOMContentLoaded', function(e){
         let space;
         let checkbox = document.getElementById("journ_choice_0").checked;
         console.log(checkbox);
-        for (let i = 0; i < journChoice.length; i++){
-            if (journChoice[i]["id"] === id) {
-                // journName = journChoice[i];
-                // console.log(journChoice[i]['productName']);
-                space = journChoice[i]['productName'];
-                document.getElementById('choosen_journ').innerHTML = space;                
-            };
-        }
+        if (checkbox === true) {
+            for (let i = 0; i < journChoice.length; i++){
+                if (journChoice[i]["id"] === id) {
+                    // journName = journChoice[i];
+                    // console.log(journChoice[i]['productName']);
+                    space = journChoice[i]['productName'];
+                    document.getElementById('choosen_journ').innerHTML = space;                
+                };
+            };            
+        };
+
         // alert("It go home");
     });
 
@@ -46,15 +49,18 @@ document.addEventListener('DOMContentLoaded', function(e){
     tbl1.addEventListener('click', function(event){ 
         let id = 1;
         let space;
-
-        for (let i = 0; i < journChoice.length; i++){
-            if (journChoice[i]["id"] === id) {
-                // journName = journChoice[i];
-                // console.log(journChoice[i]['productName']);
-                space = journChoice[i]['productName'];
-                document.getElementById('choosen_journ').innerHTML = space;
+        let checkbox = document.getElementById("journ_choice_1").checked;
+        console.log(checkbox);
+        if (checkbox === true) {
+            for (let i = 0; i < journChoice.length; i++){
+                if (journChoice[i]["id"] === id) {
+                    // journName = journChoice[i];
+                    // console.log(journChoice[i]['productName']);
+                    space = journChoice[i]['productName'];
+                    document.getElementById('choosen_journ').innerHTML = space;
+                };    
             };
-         }
+        };
         // alert("It go home");
     });
 
@@ -62,7 +68,8 @@ document.addEventListener('DOMContentLoaded', function(e){
     tbl2.addEventListener('click', function(event){ 
         let id = 2;
         let space;
-
+        let checkbox = document.getElementById("journ_choice_2").checked;
+        console.log(checkbox);
         for (let i = 0; i < journChoice.length; i++){
             if (journChoice[i]["id"] === id) {
                 // journName = journChoice[i];
@@ -78,7 +85,8 @@ document.addEventListener('DOMContentLoaded', function(e){
     tbl3.addEventListener('click', function(event){ 
         let id = 3;
         let space;     
-        
+        let checkbox = document.getElementById("journ_choice_3").checked;
+        console.log(checkbox);
         for (let i = 0; i < journChoice.length; i++){
             if (journChoice[i]["id"] === id) {
                 // journName = journChoice[i];
