@@ -16,10 +16,10 @@
 //      throw new \PDOException($e->getMessage(),(int)$e->getCode());
 // }
 
-    // $sql = "INSERT INTO products(productName) VALUES('Planeten Saturnus - 2 dec 2028')";
+    // $sql = "INSERT INTO products(productName) VALUES('Planeten Uranus - 22 Feb 2025')";
     // //echo $sql . '<br>'; //(Mickes grej för att kolla varför inte formuläret fungerade)
     // $stmt =$pdo->prepare($sql); 
-    // $stmt->execute(['productName' =>'Planeten Saturnus - 2 dec 2028']);
+    // $stmt->execute(['productName' =>'Planeten Uranus - 22 Feb 2025']);
     // echo 'product added';
 
 //     $stmt = $pdo->query("SELECT * FROM products");    
@@ -61,6 +61,7 @@ include 'includes/pdo_connect.php';
             echo $row['productName'] . '<input type="checkbox" id="journ_choice_' . $row['ProductId'] . '">' . '<br>';
             // var_dump($row);
             $products[] = $row;
+            // var_dump($products);
         }
         ?>
         </td>
@@ -68,13 +69,15 @@ include 'includes/pdo_connect.php';
 </table><br><br>
 <table class='working_on'>
     <tr>
-        <th>Valda resor</th>
+        <th>Mina valda resor</th>
     </tr>
     <tr>
-        <td id="choosen_journ">[här ska valda resor listas]</td>
-        <td><textarea id="choosen_journ2"><?php echo json_encode($products); ?></textarea></td>
+        <td id="choosen_journ"></td>
     </tr>
-</table>    
+    <tr>
+        <td><textarea id="choosen_journ2" style="display:none;"><?php echo json_encode($products); ?></textarea></td>
+    </tr>
+</table> 
 <button id ='boka'>Boka</button>
 </body>
 </html>
