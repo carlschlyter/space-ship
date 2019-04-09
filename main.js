@@ -20,6 +20,8 @@ document.addEventListener('DOMContentLoaded', function(e){
     //     }    
     // ];
 
+    //SHOPPING CART SOLUTION
+
     let journChoice2 = document.getElementById("choosen_journ2").innerHTML;
     journChoice2 = JSON.parse(journChoice2);
     //console.log(journChoice2);
@@ -188,4 +190,11 @@ document.addEventListener('DOMContentLoaded', function(e){
     //     console.log('choosen');
     // });
 
+    //PUT SHOPPINGCART CONTENT INTO ORDER 
+    let book = document.getElementById('book');
+    book.addEventListener('click', function(event){
+        alert('Jag vill boka min/mina resor nu!');
+        window.location.href = 'login.php';
+    })  
+    
 }); 

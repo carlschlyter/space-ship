@@ -78,6 +78,6 @@ include 'includes/pdo_connect.php';
         <td><textarea id="choosen_journ2" style="display:none;"><?php echo json_encode($products); ?></textarea></td>
     </tr>
 </table> 
-<button id ='boka'>Boka</button>
+<button id ='book' href=>Boka</button>
 </body>
 </html>
