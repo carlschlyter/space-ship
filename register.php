@@ -6,11 +6,13 @@ if (isset($_POST['Skicka'])) {
     $customerName = filter_input(INPUT_POST, 'customerName', FILTER_SANITIZE_STRING);
     $userName = filter_input(INPUT_POST, 'userName', FILTER_SANITIZE_STRING);
     $passWord = filter_input(INPUT_POST, 'passWord', FILTER_SANITIZE_STRING);
+    $passWord = password_hash($passWord, PASSWORD_DEFAULT);
 
     $sql = "INSERT INTO customers(CustomerName, UserName, UserPassword) VALUES('$customerName', '$userName', '$passWord')";
     //echo $sql . '<br>'; //(Mickes grej för att kolla varför inte formuläret fungerade)
     $stmt =$pdo->prepare($sql); 
     $stmt->execute();
+    header("location: checkout.php");
 }
 ?>
 

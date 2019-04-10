@@ -14,6 +14,7 @@ include 'includes/pdo_connect.php';
     <script src="main.js"></script>
 </head>
 <body>
-<h2>Nästan klart för take of till rymden!</h2>    
+<h2>Checkout - Nästan klart för take of till rymden!</h2>   
+<button onclick="window.location.href = 'index.php';">Logout</button> 
 </body>
 </html>
