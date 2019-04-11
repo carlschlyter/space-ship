@@ -34,7 +34,6 @@ if (isset($_POST['Skicka'])) {
         <input type="text" name="userName"><caption><i> Användarnamn</i></caption><br><br>
         <input type="text" name="passWord"><caption><i> Lösenord</i></caption><br><br>
         <input type="submit" name="Skicka" value="Skapa konto"><br>   
-</form><br>
-<a href="checkout.php">Till Kassan!</a>    
+</form><br>    
 </body>
 </html>

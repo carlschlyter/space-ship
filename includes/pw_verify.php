@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 class DB {
     private $host = 'localhost';
     private $db = 'space_ship';

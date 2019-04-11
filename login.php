@@ -27,6 +27,7 @@ if (isset($_POST['action'])){
 
     class User {
         private $db;
+        public $is_logged_in = false;
     
         public function __construct() {
             $obj = new DB();
@@ -38,20 +39,34 @@ if (isset($_POST['action'])){
             $stmt->execute([':user'=> $userName]);
             $hash = $stmt->fetchColumn();
     
-            return password_verify($passWord, $hash);
+            $this->is_logged_in = password_verify($passWord, $hash); 
+
+            if($this->is_logged_in) {
+                $_SESSION['Logged in'] = true;
+                $_SESSION['UserName'] = $userName;
+                $_SESSION['PassWord'] = $passWord;
+                header("location: checkout.php");                
+            } else {
+                echo 'Not logged in';
+            }
+
+            return $this->is_logged_in;
         }
     }
+
+    // print_r($_SESSION);
 
     $user = new User();
 
     if ($user->login($userName, $passWord)) {
-        header("location: checkout.php");
+        // header("location: checkout.php");
+        echo "Logged in";
     } else {
         echo "Not logged in";
     }
+
+    print_r($_SESSION);
 }
-
-
 
 ?>
 
@@ -72,8 +87,8 @@ if (isset($_POST['action'])){
             <input type="text" name="userName"><caption><i> Användarnamn</i></caption><br><br>
             <input type="password" name="passWord"><caption><i> Lösenord</i></caption><br><br>
             <input type="submit" name='action' value="Login">
-    </form><br><br>
-    <a href="register.php">Registrera konto!</a>
+    </form>    
+    <p><i><a href="register.php">Registrera konto!</a></i></p>
 
 </body>
 </html>

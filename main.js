@@ -193,7 +193,7 @@ document.addEventListener('DOMContentLoaded', function(e){
     //PUT SHOPPINGCART CONTENT INTO ORDER 
     let book = document.getElementById('book');
     book.addEventListener('click', function(event){
-        alert('Jag vill boka min/mina resor nu!');
+        // alert('Jag vill boka min/mina resor nu!');
         window.location.href = 'login.php';
     })  
     
