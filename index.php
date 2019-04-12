@@ -1,4 +1,6 @@
-<?php
+ <pre>
+ <?php
+// setcookie('x', 'y');
 
     // $sql = "INSERT INTO products(productName) VALUES('Planeten Uranus - 22 Feb 2025')";
     // //echo $sql . '<br>'; //(Mickes grej för att kolla varför inte formuläret fungerade)
@@ -14,9 +16,9 @@
 //     echo 'Hello Space Ship!';
 
 include 'includes/pdo_connect.php';
-
+// print_r($_COOKIE);
 ?>
-
+</pre>
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,6 +49,7 @@ include 'includes/pdo_connect.php';
             $products[] = $row;
             // var_dump($products);
         }
+
         ?>
         </td>
     </tr>
@@ -62,6 +65,14 @@ include 'includes/pdo_connect.php';
         <td><textarea id="choosen_journ2" style="display:none;"><?php echo json_encode($products); ?></textarea></td>
     </tr>
 </table> 
+<?php
+    // if (isset($_COOKIE['earth'])){
+    //     echo 'earth';
+    //     var_dump($_COOKIE['earth']);
+    // }
+?>
 <button id ='book' href=>Boka</button>
+<!-- <button id='btnsetckie'>Set cookie</button>
+<button id="btnsetckiearr">Set cookie array</button> -->
 </body>
 </html>

@@ -1,6 +1,14 @@
     
+console.log(document.cookie);
+
 document.addEventListener('DOMContentLoaded', function(e){
 
+    // document.getElementById('btnsetckie').addEventListener('click', function(ev) {
+    //     document.cookie = 'earth=moon';
+    //     // alert('Cookie set');
+    //     location.reload();
+    // });
+    
     // let journChoice = [
     //     {
     //         'id': 0,
@@ -24,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function(e){
 
     let journChoice2 = document.getElementById("choosen_journ2").innerHTML;
     journChoice2 = JSON.parse(journChoice2);
-    //console.log(journChoice2);
+    console.log(journChoice2);
     //console.log(typeof(journChoice2));
 
     // document.getElementById('choosen_journ').innerHTML = journChoice2[0].productName;
@@ -71,10 +79,17 @@ document.addEventListener('DOMContentLoaded', function(e){
     //                 document.getElementById('choosen_journ').innerHTML = journChoice2[i].productName;               
     //             }
     //         };            
-        });
+    //    });
 
         // alert("It go home");
-    // });
+        document.getElementById("book").addEventListener('click', function(ev) {
+            document.cookie = 'chosen_travels=' + JSON.stringify(chosen_travels);
+            // alert('Cookie set');
+            location.reload();
+            window.location.href = 'login.php';
+        });
+
+    });
 
     let tbl1 = document.getElementById("journ_choice_1");
     tbl1.addEventListener('click', function(event){
@@ -109,6 +124,13 @@ document.addEventListener('DOMContentLoaded', function(e){
         //     };
         // };
         // alert("It go home");
+        document.getElementById("book").addEventListener('click', function(ev) {
+            document.cookie = 'chosen_travels=' + JSON.stringify(chosen_travels);
+            // alert('Cookie set');
+            location.reload();
+            window.location.href = 'login.php';
+        });
+
     });
 
     let tbl2 = document.getElementById("journ_choice_2");
@@ -143,6 +165,13 @@ document.addEventListener('DOMContentLoaded', function(e){
     //         };
     //    }
         // alert("It go home");
+        document.getElementById("book").addEventListener('click', function(ev) {
+            document.cookie = 'chosen_travels=' + JSON.stringify(chosen_travels);
+            // alert('Cookie set');
+            location.reload();
+            window.location.href = 'login.php';
+        });
+
     });
 
     let tbl3 = document.getElementById("journ_choice_3");
@@ -180,7 +209,17 @@ document.addEventListener('DOMContentLoaded', function(e){
 
         // }
         // alert("It go home");
+
+        document.getElementById("book").addEventListener('click', function(ev) {
+            document.cookie = 'chosen_travels=' + JSON.stringify(chosen_travels);
+            // alert('Cookie set');
+            location.reload();
+            window.location.href = 'login.php';
+        });
+
     });
+    
+
     // let journChoice = document.getElementById('journ_choice');
 
     // document.addEventListener('click', function(){
@@ -190,11 +229,13 @@ document.addEventListener('DOMContentLoaded', function(e){
     //     console.log('choosen');
     // });
 
+
+
     //PUT SHOPPINGCART CONTENT INTO ORDER 
-    let book = document.getElementById('book');
-    book.addEventListener('click', function(event){
-        // alert('Jag vill boka min/mina resor nu!');
-        window.location.href = 'login.php';
-    })  
+    // let book = document.getElementById('book');
+    // book.addEventListener('click', function(event){
+    //     // alert('Jag vill boka min/mina resor nu!');
+    //     window.location.href = 'login.php';
+    // })  
     
 }); 
