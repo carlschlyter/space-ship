@@ -1,4 +1,3 @@
- <pre>
  <?php
 // setcookie('x', 'y');
 
@@ -18,7 +17,7 @@
 include 'includes/pdo_connect.php';
 // print_r($_COOKIE);
 ?>
-</pre>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,7 +48,6 @@ include 'includes/pdo_connect.php';
             $products[] = $row;
             // var_dump($products);
         }
-
         ?>
         </td>
     </tr>

@@ -54,41 +54,20 @@ document.addEventListener('DOMContentLoaded', function(e){
         for(let i = 0; i < chosen_travels.length; i++) {
             // skriv ut elementet
         }
-//        console.log(checkbox);
-        // if (checkbox === true) {
-        //     console.log('reagerat');
-        //     for (let i = 0; i < journChoice2.length; i++){
-        //         if (checkbox === true) {
-        //         // let text = "";
-        //         // let x;
-        //         // for (x in journChoice2){
-        //         //     text += journChoice2[x] + " ";
-        //         // }
-        //         document.getElementById('choosen_journ').innerHTML = journChoice2[i].productName;
-        //         } else { 
-        //         console.log('not checked')
-        //     }
-        // };   
-    //         for (let i = 0; i < journChoice2.length; i++){
-    //             if (journChoice2[i]["Id"] === tbl0['Id']) {
-    // //                 // journName = journChoice[i];
-    // //                 // console.log(journChoice[i]['productName']);
-    //                 console.log('reagerat2');
-    // //                 space = journChoice2[i]['productName'];
-    // //                 document.getElementById('choosen_journ').innerHTML = space; 
-    //                 document.getElementById('choosen_journ').innerHTML = journChoice2[i].productName;               
-    //             }
-    //         };            
-    //    });
 
         // alert("It go home");
+
+        let journCkie;
         document.getElementById("book").addEventListener('click', function(ev) {
-            document.cookie = 'chosen_travels=' + JSON.stringify(chosen_travels);
+            journCkie = document.cookie = 'chosen_travels=' + JSON.stringify(chosen_travels);
             // alert('Cookie set');
             location.reload();
             window.location.href = 'login.php';
+            
         });
 
+
+        
     });
 
     let tbl1 = document.getElementById("journ_choice_1");
@@ -237,5 +216,6 @@ document.addEventListener('DOMContentLoaded', function(e){
     //     // alert('Jag vill boka min/mina resor nu!');
     //     window.location.href = 'login.php';
     // })  
-    
+
+
 }); 

@@ -8,13 +8,23 @@ include 'includes/pdo_connect.php';
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <title>Checkout page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css">
     <script src="main.js"></script>
 </head>
 <body>
-<h2>Checkout - Nästan klart för take of till rymden!</h2>   
-<button onclick="window.location.href = 'index.php';">Logout</button> 
+<h2>Checkout - Nästan klart för take of till rymden!</h2> 
+<table>
+    <tr>
+        <th>Mina valda resor</th>
+    </tr>
+    <tr>
+        <td id="confirm_order"></td>
+    </tr>
+</table>   
+
+<button>Bekräfta order</button>
+<button onclick="window.location.href = 'index.php';">Hem</button> 
 </body>
 </html>
