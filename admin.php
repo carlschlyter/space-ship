@@ -1,5 +1,16 @@
 <?php
 include 'includes/pdo_connect.php';
+
+if (isset($_POST['Skicka'])) {
+    //echo 'Skickat med formulär!';
+    $OrderItemId = filter_input(INPUT_POST, 'OrderItemId', FILTER_SANITIZE_NUMBER_INT);
+
+    $sql = "DELETE FROM orderitems WHERE OrderItemId = $OrderItemId";
+    // echo $sql . '<br>'; //(Visa querien för att kolla varför inte formuläret fungerade)
+    $stmt =$pdo->prepare($sql); 
+    $stmt->execute();
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -27,12 +38,17 @@ include 'includes/pdo_connect.php';
         JOIN orders AS ord ON ord.OrderId = oi.OrderId  
         JOIN customers AS c ON c.CustomerId = ord.CustomerId"); 
         while ($row = $stmt->fetch()){
-            echo 'Biljett nr:  ' . $row['OrderItemId'] . ',  ' . 'Resmål:  ' . '"' . $row['productName'] . '"' . ',  ' . 'Kund nr:  ' . $row['CustomerId'] . ',  ' . 'Kund:  ' . $row['CustomerName'] . '  <button>Ta bort</button>' . '<br>' . '<br>';
+            echo 'Biljett nr:  ' . $row['OrderItemId'] . ',  ' . 'Resmål:  ' . '"' . $row['productName'] . '"' . ',  ' . 'Kund nr:  ' . $row['CustomerId'] . ',  ' . 'Kundnamn:  ' . $row['CustomerName'] . ',  ' . 'KundId:  ' . $row['CustomerId'] . '<br>' . '<br>';
             // var_dump($row);
             // var_dump($products);
         }
         ?>
         </td>
     </tr>
-</table><br><br>
+</table><br>
+<p><i>Fyll i biljettnummer för att ta bort biljetten och göra den ogiltig:</i></p>
+<form method="POST" action="admin.php">
+        <input type="text" name="OrderItemId"><caption><i> Biljettnummer</i></caption><br><br>
+        <input type="submit" name="Skicka" value="Ta bort biljett"><br>   
+</form><br>
 </html>
