@@ -36,9 +36,10 @@ if (isset($_POST['Skicka'])) {
         FROM space_ship.orderitems AS oi
         JOIN products AS p ON p.ProductId = oi.ProductId
         JOIN orders AS ord ON ord.OrderId = oi.OrderId  
-        JOIN customers AS c ON c.CustomerId = ord.CustomerId"); 
+        JOIN customers AS c ON c.CustomerId = ord.CustomerId
+        ORDER BY oi.OrderItemId"); 
         while ($row = $stmt->fetch()){
-            echo 'Biljett nr:  ' . $row['OrderItemId'] . ',  ' . 'Resmål:  ' . '"' . $row['productName'] . '"' . ',  ' . 'Kund nr:  ' . $row['CustomerId'] . ',  ' . 'Kundnamn:  ' . $row['CustomerName'] . ',  ' . 'KundId:  ' . $row['CustomerId'] . '<br>' . '<br>';
+            echo 'Biljett nr:  ' . $row['OrderItemId'] . ',  ' . 'Resa:  ' . '"' . $row['productName'] . '"' . ',  ' . 'Kund nr:  ' . $row['CustomerId'] . ',  ' . 'Kundnamn:  ' . $row['CustomerName'] . '<br>' . '<br>';
             // var_dump($row);
             // var_dump($products);
         }

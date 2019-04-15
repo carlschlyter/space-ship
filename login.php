@@ -3,7 +3,6 @@
 include_once 'includes/pdo_connect.php';
 include_once 'includes/pw_verify.php';
 
-
 if (isset($_POST['action'])){
 
     // $userName = 'Calle';
@@ -45,7 +44,7 @@ if (isset($_POST['action'])){
                 $_SESSION['Logged in'] = true;
                 $_SESSION['UserName'] = $userName;
                 $_SESSION['PassWord'] = $passWord;
-                header("location: checkout.php");                
+                // header("location: checkout.php");                
             } else {
                 echo 'Not logged in';
             }
@@ -56,16 +55,16 @@ if (isset($_POST['action'])){
 
     // print_r($_SESSION);
 
-    $user = new User();
+    // $user = new User();
 
-    if ($user->login($userName, $passWord)) {
-        // header("location: checkout.php");
-        echo "Logged in";
-    } else {
-        echo "Not logged in";
-    }
+    // if ($user->login($userName, $passWord)) {
+    //     // header("location: checkout.php");
+    //     echo "Logged in as: " . ($_SESSION['UserName']);
+    // } else {
+    //     echo "Not logged in";
+    // }
 
-    print_r($_SESSION);
+    // print_r($_SESSION);
 }
 
 ?>
@@ -89,6 +88,7 @@ if (isset($_POST['action'])){
             <input type="submit" name='action' value="Login">
     </form>    
     <p><i><a href="register.php">Registrera konto!</a></i></p>
+    <p><i><a href="checkout.php">Till Checkout</a></i></p>
 
 </body>
 </html>

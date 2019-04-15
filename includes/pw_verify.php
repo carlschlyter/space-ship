@@ -2,6 +2,8 @@
 
 session_start();
 
+echo "Inloggad som: " . ($_SESSION['UserName']);
+
 class DB {
     private $host = 'localhost';
     private $db = 'space_ship';

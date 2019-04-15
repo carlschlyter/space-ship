@@ -1,5 +1,12 @@
 <?php
 include 'includes/pdo_connect.php';
+include_once 'includes/pw_verify.php';
+
+$json = $_COOKIE['chosen_travels'];
+// var_dump(json_decode($json));
+// var_dump(json_decode($json, true));
+$planets = json_decode($json, true);
+
 
 ?>
 
@@ -14,7 +21,7 @@ include 'includes/pdo_connect.php';
     <script src="main.js"></script>
 </head>
 <body>
-<h2>Checkout - Nästan klart för take of till rymden!</h2> 
+<h2>Checkout - Nästan klart för take off till rymden!</h2> 
 <table>
     <tr>
         <th>Mina valda resor</th>
@@ -22,9 +29,23 @@ include 'includes/pdo_connect.php';
     <tr>
         <td id="confirm_order"></td>
     </tr>
-</table>   
-
-<button>Bekräfta order</button>
+    <tr>
+        <td>
+            <?php foreach($planets as $planet => $planet_value){
+                echo '<br>';
+                echo $planet_value['productName'];
+                echo '<br>';
+            }  ?>
+        </td>
+    </tr>
+</table><br>
+<h4>Bekräfta ditt köp nedan!</h4>
+<form method="POST" action="checkout.php">
+        <input type="text" name="OrderDate"><caption><i> Orderdatum</i></caption><br><br>
+        <input type="text" name="CustomerName"><caption><i> Kundnamn</i></caption><br><br>
+        <input type="text" name="productName"><caption><i> Resa</i></caption><br><br>        
+        <input type="submit" name="Skicka" value="Köp resa"><br>   
+</form><br>
 <button onclick="window.location.href = 'index.php';">Hem</button> 
 </body>
 </html>
