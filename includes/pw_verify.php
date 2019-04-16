@@ -2,7 +2,9 @@
 
 session_start();
 
+if (isset($_SESSION['UserName'])){
 echo "Inloggad som: " . ($_SESSION['UserName']);
+} 
 
 class DB {
     private $host = 'localhost';

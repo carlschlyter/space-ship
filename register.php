@@ -1,5 +1,6 @@
 <?php
 include 'includes/pdo_connect.php';
+include_once 'includes/pw_verify.php';
 
 if (isset($_POST['Skicka'])) {
     //echo 'Skickat med formulär!';
@@ -33,7 +34,7 @@ if (isset($_POST['Skicka'])) {
         <input type="text" name="customerName"><caption><i> Namn</i></caption><br><br>
         <input type="text" name="userName"><caption><i> Användarnamn</i></caption><br><br>
         <input type="text" name="passWord"><caption><i> Lösenord</i></caption><br><br>
-        <input type="submit" name="Skicka" value="Skapa konto"><br>   
+        <input type="submit" name="Skicka" value="Skapa konto"><caption><i> Obs om du klickar "skapa konto" accepterar du att vi lagrar dina personuppgifter!</i></caption><br>   
 </form><br>    
 </body>
 </html>

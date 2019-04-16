@@ -25,6 +25,11 @@ if (isset($_POST['Skicka'])) {
 <body>
 
 <h1>Space Ship Biljettkontroll</h1>
+<p><i>Fyll i biljettnummer för att ta bort biljetten och göra den ogiltig:</i></p>
+<form method="POST" action="admin.php">
+        <input type="text" name="OrderItemId"><caption><i> Biljettnummer</i></caption><br><br>
+        <input type="submit" name="Skicka" value="Ta bort biljett"><br>   
+</form><br>
 <table>
     <tr>
         <th>Giltiga biljetter</th>
@@ -47,9 +52,5 @@ if (isset($_POST['Skicka'])) {
         </td>
     </tr>
 </table><br>
-<p><i>Fyll i biljettnummer för att ta bort biljetten och göra den ogiltig:</i></p>
-<form method="POST" action="admin.php">
-        <input type="text" name="OrderItemId"><caption><i> Biljettnummer</i></caption><br><br>
-        <input type="submit" name="Skicka" value="Ta bort biljett"><br>   
-</form><br>
+
 </html>

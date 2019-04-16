@@ -3,10 +3,26 @@ include 'includes/pdo_connect.php';
 include_once 'includes/pw_verify.php';
 
 $json = $_COOKIE['chosen_travels'];
-// var_dump(json_decode($json));
 // var_dump(json_decode($json, true));
 $planets = json_decode($json, true);
 
+foreach($planets as $planet => $planet_value){
+
+    $OrderDate = date('Y-m-d');
+    $CustomerId = 20;
+    $OrderId = 33;
+    $ProductId = $planet['ProductId'];  
+    
+    $sql = "INSERT INTO orders(OrderDate, CustomerId) VALUES('$OrderDate', '$CustomerId')";
+    //echo $sql . '<br>'; //(Mickes grej för att kolla varför inte formuläret fungerade)
+    $stmt =$pdo->prepare($sql); 
+    $stmt->execute();
+    
+    $sql = "INSERT INTO orderitems(OrderId, ProductId) VALUES('$OrderId', '$ProductId')";
+    //echo $sql . '<br>'; //(Mickes grej för att kolla varför inte formuläret fungerade)
+    $stmt =$pdo->prepare($sql); 
+    $stmt->execute();
+}
 
 ?>
 
@@ -39,13 +55,7 @@ $planets = json_decode($json, true);
         </td>
     </tr>
 </table><br>
-<h4>Bekräfta ditt köp nedan!</h4>
-<form method="POST" action="checkout.php">
-        <input type="text" name="OrderDate"><caption><i> Orderdatum</i></caption><br><br>
-        <input type="text" name="CustomerName"><caption><i> Kundnamn</i></caption><br><br>
-        <input type="text" name="productName"><caption><i> Resa</i></caption><br><br>        
-        <input type="submit" name="Skicka" value="Köp resa"><br>   
-</form><br>
-<button onclick="window.location.href = 'index.php';">Hem</button> 
+<button onclick="window.location.href = 'index.php';">Hem</button>
+<button onclick="window.location.href = 'mypage.php';">Genomför köp!</button> 
 </body>
 </html>

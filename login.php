@@ -12,18 +12,6 @@ if (isset($_POST['action'])){
     $userName = filter_input(INPUT_POST, 'userName', FILTER_SANITIZE_STRING);
     $passWord = filter_input(INPUT_POST, 'passWord', FILTER_SANITIZE_STRING);
 
-
-    // echo "userName = $userName" . '<br>';
-    // echo "passWord = $passWord";
-    
-    // $query = "SELECT * FROM users WHERE UserName = '?' AND PassWord = '?'";
-    // $stmt = $pdo->prepare($query);
-    // $stmt->execute([$userName, $passWord]);
-
-    // $query = "SELECT * FROM users WHERE UserName = :user AND PassWord = :pass";
-    // $stmt = $pdo->prepare($query);
-    // $stmt->execute([':user' => $userName, ':pass' =>$passWord]); 
-
     class User {
         private $db;
         public $is_logged_in = false;
@@ -55,16 +43,18 @@ if (isset($_POST['action'])){
 
     // print_r($_SESSION);
 
-    // $user = new User();
+    $user = new User();
 
-    // if ($user->login($userName, $passWord)) {
-    //     // header("location: checkout.php");
-    //     echo "Logged in as: " . ($_SESSION['UserName']);
-    // } else {
-    //     echo "Not logged in";
-    // }
+    if ($user->login($userName, $passWord)) {
+        // header("location: checkout.php");
+        echo "Logged in as: " . ($_SESSION['UserName']);
+    } else {
+        echo "Not logged in";
+    }
 
     // print_r($_SESSION);
+
+    // header("location: checkout.php");                
 }
 
 ?>
